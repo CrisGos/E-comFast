@@ -13,6 +13,8 @@ import EntityService from '../services/entityService';
 import EntityRepository from '../repositories/entityRepository';
 import PermissionService from '../services/permissionService';
 import PermissionRepository from '../repositories/permissionRepository';
+import RoleService from '../services/roleService';
+import RoleRepository from '../repositories/roleRepository';
  // here we call the single instance of determined class after being imported
 
 container.registerSingleton<ProductRepository>(ProductRepository);
@@ -35,3 +37,6 @@ container.registerSingleton<EntityService>(EntityService);
 
 container.registerSingleton<PermissionRepository>(PermissionRepository);
 container.registerSingleton<PermissionService>(PermissionService);
+
+container.registerSingleton<RoleRepository>(RoleRepository);
+container.registerSingleton<RoleService>(RoleService);
