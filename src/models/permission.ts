@@ -5,8 +5,13 @@ import {
     DataType,
     PrimaryKey,
     AutoIncrement,
-    HasMany,
+    ForeignKey,
+    BelongsTo,
 } from "sequelize-typescript";
+import { Role } from './role';
+import { Entity } from './entity';
+
+
 
 
 @Table({//here we deterimine the tableName and timestamp
@@ -45,13 +50,21 @@ export class Permission extends Model { // This class will extend from Model it'
     })
     canGet!: boolean;
 
+    @ForeignKey(() => Role)
     @Column({
         type: DataType.INTEGER,
     })
     roleId!: number;
 
+    @BelongsTo(() => Role)
+    role!: Role;
+
+    @ForeignKey(() => Entity)
     @Column({
         type: DataType.INTEGER,
     })
     entityId!: number;
+
+    @BelongsTo(() => Entity)
+    entity!: Entity;
 }

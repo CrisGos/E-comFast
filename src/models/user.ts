@@ -11,6 +11,7 @@ import {
 } from "sequelize-typescript";
 import { Role } from './role'
 import { Cart } from './cart'
+import { Order } from './order';
 
 
 @Table({//here we deterimine the tableName and timestamp
@@ -49,4 +50,7 @@ export class User extends Model { // This class will extend from Model it'll all
 
     @HasMany(() => Cart)
     cart!: Cart[];
+
+    @HasMany(() => Order)
+    order!: Order[];
 }

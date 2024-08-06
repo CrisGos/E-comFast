@@ -8,6 +8,7 @@ import {
     HasMany,
 } from "sequelize-typescript";
 import { User } from './user';
+import { Permission } from './permission';
 
 
 @Table({//here we deterimine the tableName and timestamp
@@ -30,4 +31,7 @@ export class Role extends Model { // This class will extend from Model it'll all
 
     @HasMany(() => User)
     user!: User[];
-}
+
+    @HasMany(() => Permission)
+    permission!: Permission[];
+}   

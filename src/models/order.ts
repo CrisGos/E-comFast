@@ -9,6 +9,7 @@ import {
     ForeignKey,
 } from "sequelize-typescript";
 import { ProductCart } from './productCart';
+import { User } from './user';
 
 
 @Table({//here we deterimine the tableName and timestamp
@@ -29,11 +30,15 @@ export class Order extends Model { // This class will extend from Model it'll al
     })
     total!: number;
 
+    @ForeignKey(() => User)
     @Column({
         type: DataType.INTEGER,
         allowNull: false,
     })
     userId!: number;
+
+    @BelongsTo(() => User)
+    user!: User;
 
     @ForeignKey(() => ProductCart)
     @Column({

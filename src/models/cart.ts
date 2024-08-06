@@ -35,4 +35,6 @@ export class Cart extends Model { // This class will extend from Model it'll all
     @BelongsTo(() => User)
     user!: number;
 
+    @HasMany(() => ProductCart)
+    productCart!: ProductCart[];
 }
