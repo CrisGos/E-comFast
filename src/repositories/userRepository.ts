@@ -11,6 +11,10 @@ export default class UserRepository { // here we created the Repository, this cl
         return await User.findByPk(id);
     }
 
+    async findByEmail(email: string) { // class to authenticate an user
+        return await User.findOne({ where: { email } });
+    }
+
     async create(user: Partial<User>) { // this method will call create from sequelize
         return await User.create(user);
     }

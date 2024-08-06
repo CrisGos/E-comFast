@@ -1,3 +1,4 @@
+export * from './authRouter';
 export * from './cartRoutes';
 export * from './entityRoutes';
 export * from './orderRoutes';
