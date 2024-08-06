@@ -7,6 +7,7 @@ import {
     AutoIncrement,
     BelongsTo,
     ForeignKey,
+    HasMany,
 } from "sequelize-typescript";
 import { Order } from './order';
 import { Cart } from './cart';
@@ -51,4 +52,6 @@ export class ProductCart extends Model { // This class will extend from Model it
     @BelongsTo(() => Product)
     product!: Product;
 
+    @HasMany(() => Order)
+    order!: Order[];
 }

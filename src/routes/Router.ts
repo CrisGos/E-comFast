@@ -8,8 +8,8 @@ router.use('/users', userRouter);
 router.use('/orders', orderRouter);
 router.use('/carts', cartRouter);
 router.use('/productCarts', productCartRouter);
-router.use('/entities', entityRouter);
-router.use('/permissions', permissionRouter);
-router.use('/roles', roleRouter);
+// router.use('/entities', entityRouter);
+// router.use('/permissions', permissionRouter);
+// router.use('/roles', roleRouter);
 
 export default router;
