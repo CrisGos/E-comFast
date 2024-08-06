@@ -2,6 +2,7 @@ import OrderRepository from '../repositories/orderRepository';
 import { injectable, inject } from 'tsyringe';
 import { Order } from "../models/order";
 import ProductCartService from './productService';
+import { container } from 'tsyringe';
 
 @injectable()
 export default class OrderService { // this class will receive params and / or body from controllers call and will insert it into repositories to call sequelize methods
@@ -15,10 +16,7 @@ export default class OrderService { // this class will receive params and / or b
         return await this.orderRepository.findById(id);
     }
 
-    async createOrders() { // This method will connect with repositorie of POST with order type
-        const order: Partial<Order> = {
-            "total": ProductCartService.getProductsByCartId(id: number)
-        }
+    async createOrders(order: Partial<Order>) { // This method will connect with repositorie of POST with order type
         return await this.orderRepository.create(order);
     }
 
@@ -31,11 +29,11 @@ export default class OrderService { // this class will receive params and / or b
     }
 }
 
-
 // @injectable()
 // export default class OrderService { // this class will receive params and / or body from controllers call and will insert it into repositories to call sequelize methods
 //     constructor(@inject(OrderRepository) private orderRepository: OrderRepository) {}
 
+//     productCartService = container.resolve(ProductCartService);
 //     async getAllOrders() { // This method will connect with repositorie of GET
 //         return await this.orderRepository.findAll(); 
 //     }
@@ -44,7 +42,10 @@ export default class OrderService { // this class will receive params and / or b
 //         return await this.orderRepository.findById(id);
 //     }
 
-//     async createOrders(order: Partial<Order>) { // This method will connect with repositorie of POST with order type
+//     async createOrders() { // This method will connect with repositorie of POST with order type
+//         const order: Partial<Order> = {
+//             "total": this.productCartService.getProductsByCartId(id)
+//         }
 //         return await this.orderRepository.create(order);
 //     }
 

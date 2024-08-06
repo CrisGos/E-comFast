@@ -14,10 +14,6 @@ export default class ProductCartService { // this class will receive params and 
         return await this.productCartRepository.findById(id);
     }
 
-    async getProductsByCartId(id: number) {
-        return await this.productCartRepository.findByCartId(id);
-    }
-
     async createProductCarts(productCart: Partial<ProductCart>) { // This method will connect with repositorie of POST with productCart type
         return await this.productCartRepository.create(productCart);
     }
@@ -43,6 +39,10 @@ export default class ProductCartService { // this class will receive params and 
 //         return await this.productCartRepository.findById(id);
 //     }
 
+//     async getProductsByCartId(id: number) {
+//         return await this.productCartRepository.findByCartId(id);
+//     }
+
 //     async createProductCarts(productCart: Partial<ProductCart>) { // This method will connect with repositorie of POST with productCart type
 //         return await this.productCartRepository.create(productCart);
 //     }
@@ -55,3 +55,4 @@ export default class ProductCartService { // this class will receive params and 
 //         return await this.productCartRepository.deleteById(id);
 //     }
 // }
+

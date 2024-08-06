@@ -11,13 +11,6 @@ export default class ProductCartRepository { // here we created the Repository, 
         return await ProductCart.findByPk(id);
     }
 
-    async findByCartId(id: number) {
-        const data: ProductCart[] = await ProductCart.findAll({
-            where: { id }
-        });
-        return data
-    }
-
     async create(productCart: Partial<ProductCart>) { // this method will call create from sequelize
         return await ProductCart.create(productCart);
     }
@@ -50,6 +43,14 @@ export default class ProductCartRepository { // here we created the Repository, 
 //         return await ProductCart.findByPk(id);
 //     }
 
+//     async findByCartId(id: number) {
+//         const data: ProductCart[] = await ProductCart.findAll({
+//             where: { id },
+//             include: [cartId],
+//         });
+//         return data
+//     }
+
 //     async create(productCart: Partial<ProductCart>) { // this method will call create from sequelize
 //         return await ProductCart.create(productCart);
 //     }
@@ -71,3 +72,4 @@ export default class ProductCartRepository { // here we created the Repository, 
 //         throw new Error('ProductCart not found');
 //     }
 // }
+
