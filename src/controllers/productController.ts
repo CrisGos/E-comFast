@@ -45,7 +45,10 @@ export default class ProductController { // Controller class of product, this cl
             
             const products = await productService.createProducts(req.body);
             console.log(products.toJSON());
-            res.status(201).json(products)
+            res.status(200).json({
+                message: "Data Fetched",
+                data: products
+            })
 
         } catch (error) {
             res.status(400).json({
@@ -72,7 +75,9 @@ export default class ProductController { // Controller class of product, this cl
         try {
             const productService = container.resolve(ProductService);
             const products = await productService.deleteProducts(parseInt(req.params.id));
-            res.status(200).json(products);
+            res.status(200).json({
+                nessage: "Data deleted successfully"
+            });
         } catch (error) {
             res.status(404).json({
                 message: `An error has occurred`,

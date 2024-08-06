@@ -45,7 +45,11 @@ export default class UserController { // Controller class of users, this class w
             
             const users = await userService.createUsers(req.body);
             console.log(users.toJSON());
-            res.status(201).json(users)
+            res.status(200).json({
+                message: "Data Fetched",
+                data: users
+            })
+
 
         } catch (error) {
             res.status(400).json({
@@ -72,7 +76,9 @@ export default class UserController { // Controller class of users, this class w
         try {
             const userService = container.resolve(UserService);
             const users = await userService.deleteUsers(parseInt(req.params.id));
-            res.status(200).json(users);
+            res.status(200).json({
+                nessage: "Data deleted successfully"
+            });
         } catch (error) {
             res.status(404).json({
                 message: `An error has occurred`,

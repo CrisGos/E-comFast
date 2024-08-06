@@ -4,7 +4,9 @@ import UserService from "../services/userService";
 import jwt from "jsonwebtoken";
 import { User } from "../models";
 
+
 export default class AuthController {
+
   static async login(req: Request, res: Response) {
     try {
       const { email, password } = req.body;
@@ -14,7 +16,7 @@ export default class AuthController {
         password
       );
       // Generate token JWT
-      const token = AuthController.generateToken({
+     const token = AuthController.generateToken({
         id: user.id,
         username: user.email,
       });

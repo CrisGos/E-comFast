@@ -12,7 +12,10 @@ export default class PermissionController { // Controller class of permissions, 
             if (!permissions) return res.status(404).json({
                 message: "Data not found"
             });
-            res.status(200).json(permissions)
+            res.status(200).json({
+                message: "Data Fetched",
+                data: permissions
+            })
 
         } catch (error) {
             res.status(500).json({
@@ -72,7 +75,9 @@ export default class PermissionController { // Controller class of permissions, 
         try {
             const permissionService = container.resolve(PermissionService);
             const permissions = await permissionService.deletePermissions(parseInt(req.params.id));
-            res.status(200).json(permissions);
+            res.status(200).json({
+                nessage: "Data deleted successfully"
+            });
         } catch (error) {
             res.status(404).json({
                 message: `An error has occurred`,

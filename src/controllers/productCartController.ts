@@ -12,7 +12,10 @@ export default class ProductCartController { // Controller class of productCarts
             if (!productCarts) return res.status(404).json({
                 message: "Data not found"
             });
-            res.status(200).json(productCarts)
+            res.status(200).json({
+                message: "Data Fetched",
+                data: productCarts
+            })
 
         } catch (error) {
             res.status(500).json({
@@ -72,7 +75,9 @@ export default class ProductCartController { // Controller class of productCarts
         try {
             const productCartService = container.resolve(ProductCartService);
             const productCarts = await productCartService.deleteProductCarts(parseInt(req.params.id));
-            res.status(200).json(productCarts);
+            res.status(200).json({
+                nessage: "Data deleted successfully"
+            });
         } catch (error) {
             res.status(404).json({
                 message: `An error has occurred`,

@@ -12,7 +12,10 @@ export default class OrderController { // Controller class of orders, this class
             if (!orders) return res.status(404).json({
                 message: "Data not found"
             });
-            res.status(200).json(orders)
+            res.status(200).json({
+                message: "Data Fetched",
+                data: orders
+            })
 
         } catch (error) {
             res.status(500).json({
@@ -72,7 +75,9 @@ export default class OrderController { // Controller class of orders, this class
         try {
             const orderService = container.resolve(OrderService);
             const orders = await orderService.deleteOrders(parseInt(req.params.id));
-            res.status(200).json(orders);
+            res.status(200).json({
+                nessage: "Data deleted successfully"
+            });
         } catch (error) {
             res.status(404).json({
                 message: `An error has occurred`,

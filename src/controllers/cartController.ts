@@ -7,12 +7,20 @@ import CartService from '../services/cartService';
 export default class CartController { // Controller class of carts, this class will start with the call of processes after the router
     static async getAllCarts(_: Request, res: Response) {// Get all carts has a dependency in services, this method will give a response and will catch any exceptions during the process of GET
         try {
+            
+        } catch (error) {
+            
+        }
+        try {
             const cartService = container.resolve(CartService); // Get carts by id also has a dependency in services, this method will give a response and will catch any exceptions during the process of GET by id
             const carts = await cartService.getAllCarts();
             if (!carts) return res.status(404).json({
                 message: "Data not found"
             });
-            res.status(200).json(carts)
+            res.status(200).json({
+                message: "Data Fetched",
+                data: carts
+            })
 
         } catch (error) {
             res.status(500).json({
@@ -72,7 +80,9 @@ export default class CartController { // Controller class of carts, this class w
         try {
             const cartService = container.resolve(CartService);
             const carts = await cartService.deleteCarts(parseInt(req.params.id));
-            res.status(200).json(carts);
+            res.status(200).json({
+                nessage: "Data deleted successfully"
+            });
         } catch (error) {
             res.status(404).json({
                 message: `An error has occurred`,

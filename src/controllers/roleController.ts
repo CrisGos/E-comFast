@@ -12,7 +12,10 @@ export default class RoleController { // Controller class of roles, this class w
             if (!roles) return res.status(404).json({
                 message: "Data not found"
             });
-            res.status(200).json(roles)
+            res.status(200).json({
+                message: "Data Fetched",
+                data: roles
+            })
 
         } catch (error) {
             res.status(500).json({
@@ -72,7 +75,9 @@ export default class RoleController { // Controller class of roles, this class w
         try {
             const roleService = container.resolve(RoleService);
             const roles = await roleService.deleteRoles(parseInt(req.params.id));
-            res.status(200).json(roles);
+            res.status(200).json({
+                nessage: "Data deleted successfully"
+            });
         } catch (error) {
             res.status(404).json({
                 message: `An error has occurred`,

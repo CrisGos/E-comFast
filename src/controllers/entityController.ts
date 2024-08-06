@@ -12,7 +12,10 @@ export default class EntityController { // Controller class of entities, this cl
             if (!entities) return res.status(404).json({
                 message: "Data not found"
             });
-            res.status(200).json(entities)
+            res.status(200).json({
+                message: "Data Fetched",
+                data: entities
+            })
 
         } catch (error) {
             res.status(500).json({
@@ -72,7 +75,9 @@ export default class EntityController { // Controller class of entities, this cl
         try {
             const entityService = container.resolve(EntityService);
             const entities = await entityService.deleteEntities(parseInt(req.params.id));
-            res.status(200).json(entities);
+            res.status(200).json({
+                nessage: "Data deleted successfully"
+            });
         } catch (error) {
             res.status(404).json({
                 message: `An error has occurred`,
