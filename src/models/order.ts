@@ -5,8 +5,10 @@ import {
     DataType,
     PrimaryKey,
     AutoIncrement,
-    HasMany,
+    BelongsTo,
+    ForeignKey,
 } from "sequelize-typescript";
+import { ProductCart } from './productCart';
 
 
 @Table({//here we deterimine the tableName and timestamp
@@ -33,9 +35,13 @@ export class Order extends Model { // This class will extend from Model it'll al
     })
     userId!: number;
 
+    @ForeignKey(() => ProductCart)
     @Column({
         type: DataType.INTEGER,
         allowNull: true,
     })
-    productCardId!: number;
+    productCartId!: number;
+
+    @BelongsTo(() => ProductCart)
+    productCart!: ProductCart;
 }

@@ -7,6 +7,7 @@ import {
     AutoIncrement,
     HasMany,
 } from "sequelize-typescript";
+import { Order } from './order';
 
 
 @Table({//here we deterimine the tableName and timestamp
@@ -38,4 +39,7 @@ export class ProductCart extends Model { // This class will extend from Model it
         allowNull: true,
     })
     productId!: number;
+
+    @HasMany(() => Order)
+    order!: Order[];
 }
