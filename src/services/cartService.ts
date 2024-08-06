@@ -15,7 +15,6 @@ export default class CartService { // this class will receive params and / or bo
     }
 
     async createCarts(cart: Partial<Cart>) { // This method will connect with repositorie of POST with cart type
-        console.log(2);
         return await this.cartRepository.create(cart);
     }
 

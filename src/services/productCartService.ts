@@ -15,7 +15,6 @@ export default class ProductCartService { // this class will receive params and 
     }
 
     async createProductCarts(productCart: Partial<ProductCart>) { // This method will connect with repositorie of POST with productCart type
-        console.log(2);
         return await this.productCartRepository.create(productCart);
     }
 

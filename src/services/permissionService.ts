@@ -15,7 +15,6 @@ export default class PermissionService { // this class will receive params and /
     }
 
     async createPermissions(permission: Partial<Permission>) { // This method will connect with repositorie of POST with permission type
-        console.log(2);
         return await this.permissionRepository.create(permission);
     }
 

@@ -15,7 +15,6 @@ export default class OrderService { // this class will receive params and / or b
     }
 
     async createOrders(order: Partial<Order>) { // This method will connect with repositorie of POST with order type
-        console.log(2);
         return await this.orderRepository.create(order);
     }
 

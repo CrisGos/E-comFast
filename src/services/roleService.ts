@@ -15,7 +15,6 @@ export default class RoleService { // this class will receive params and / or bo
     }
 
     async createRoles(role: Partial<Role>) { // This method will connect with repositorie of POST with role type
-        console.log(2);
         return await this.roleRepository.create(role);
     }
 

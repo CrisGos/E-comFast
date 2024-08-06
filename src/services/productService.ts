@@ -15,7 +15,6 @@ export default class ProductService { // this class will receive params and / or
     }
 
     async createProducts(product: Partial<Product>) { // This method will connect with repositorie of POST with user type
-        console.log(2);
         return await this.productRepository.create(product);
     }
 

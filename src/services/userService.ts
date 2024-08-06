@@ -19,7 +19,6 @@ export default class UserService { // this class will receive params and / or bo
       }
 
     async createUsers(user: Partial<User>) { // This method will connect with repositorie of POST with user type
-        console.log(2);
         return await this.userRepository.create(user);
     }
 

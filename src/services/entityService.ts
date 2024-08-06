@@ -15,7 +15,6 @@ export default class EntityService { // this class will receive params and / or 
     }
 
     async createEntities(entity: Partial<Entity>) { // This method will connect with repositorie of POST with entity type
-        console.log(2);
         return await this.entityRepository.create(entity);
     }
 
