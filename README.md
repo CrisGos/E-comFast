@@ -1,7 +1,5 @@
 # E-comFast
 
-# typescript-microservices-pharmaceutical
-
 ## Description
 
 
